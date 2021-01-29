@@ -1,0 +1,10 @@
+{
+  "name": "seatsio-react-native",
+  "description": "Seats.io react native components",
+  "version": "0.0.1",
+  "author": "seats.io",
+  "license": "MIT",
+  "dependencies": {
+
+  }
+}
