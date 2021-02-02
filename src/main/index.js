@@ -1,1 +1,3 @@
-export {default as SeatsioSeatingChart} from './SeatsioSeatingChart';
+import SeatsioSeatingChart from './SeatsioSeatingChart'
+
+export {SeatsioSeatingChart};

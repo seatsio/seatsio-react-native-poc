@@ -1,5 +1,5 @@
 import React from 'react';
-import SeatsioSeatingChart from '@seatsio/seatsio-react-native';
+import {SeatsioSeatingChart} from '@seatsio/seatsio-react-native';
 import {Button, StyleSheet, View} from 'react-native';
 
 export default class App extends React.Component {
