@@ -42,8 +42,7 @@ export default class App extends React.Component {
             <SeatsioSeatingChart
                 workspaceKey="publicDemoKey"
                 event={"smallTheatreEvent2"}
-                // onChartRendered={chart => console.log(chart)}
-                /*
+                onChartRendered={chart => console.log(chart)}
                 pricing={[
                   {'category': 1, 'price': 120},
                   {'category': 2, 'price': 20},
@@ -85,8 +84,6 @@ export default class App extends React.Component {
                 }}
                 inputDevice={"auto"}
                 loading={"<div class='loader'>Loading...</div>"}
-
-                 */
             />
           </View>
           <View style={this.styles.buttons}>
