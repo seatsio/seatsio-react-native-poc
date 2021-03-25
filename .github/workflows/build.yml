@@ -21,4 +21,3 @@ jobs:
       - uses: zcong1993/setup-timezone@master
         with:
           timezone: Europe/Brussels
-      - run: yarn ci
