@@ -10,19 +10,21 @@ class SeatsioSeatingChart extends React.Component {
 
     async componentDidUpdate(prevProps) {
         if (this.didPropsChange(this.props, prevProps)) {
-            this.destroyChart();
-            this.rerenderChart();
+            this.injectJs('chart.destroy();');
+            this.injectJs(`chart = new seatsio.SeatingChart(${this.configAsString()}).render();`);
         }
     }
 
-    rerenderChart() {
-        this.injectJs(
-            `chart = new seatsio.SeatingChart(${this.configAsString()}).render();`
+    render() {
+        return (
+            <WebView
+                ref={r => (this.webRef = r)}
+                originWhitelist={['*']}
+                source={{html: this.html()}}
+                injectedJavaScriptBeforeContentLoaded={this.pipeConsoleLog()}
+                onMessage={this.handleMessage.bind(this)}
+            />
         );
-    }
-
-    destroyChart() {
-        this.injectJs('chart.destroy();');
     }
 
     injectJs(js) {
@@ -46,18 +48,6 @@ class SeatsioSeatingChart extends React.Component {
             }
             return prevValue !== nextValue;
         });
-    }
-
-    render() {
-        return (
-            <WebView
-                ref={r => (this.webRef = r)}
-                originWhitelist={['*']}
-                source={{html: this.html()}}
-                injectedJavaScriptBeforeContentLoaded={this.pipeConsoleLog()}
-                onMessage={this.handleMessage.bind(this)}
-            />
-        );
     }
 
     handleMessage(event) {
@@ -243,7 +233,8 @@ class SeatsioSeatingChart extends React.Component {
 }
 
 SeatsioSeatingChart.defaultProps = {
-    chartJsUrl: 'https://cdn.seatsio.net/chart.js'
+    // change this to your region url, e.g. https://cdn-na.seatsio.net/chart.js for North America (See https://docs.seats.io/docs/event-manager/how-to-embed/)
+    chartJsUrl: 'https://cdn-eu.seatsio.net/chart.js'
 };
 
 SeatsioSeatingChart.propTypes = {
