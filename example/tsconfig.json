@@ -7,7 +7,7 @@
     "module": "CommonJS",
     "noEmit": true,
     "paths": {
-      "react-native-module-template": ["../src"]
+      "@seatsio/seatsio-react-native": ["../src"]
     },
     "skipLibCheck": true,
     "strict": true,

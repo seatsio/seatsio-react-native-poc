@@ -1,14 +1,14 @@
 //
-//  RNModuleTemplateModule.swift
-//  RNModuleTemplateModule
+//  SeatsioModule.swift
+//  SeatsioModule
 //
-//  Copyright © 2021 Alex Demchenko. All rights reserved.
+//  Copyright © 2021 Seats.io. All rights reserved.
 //
 
 import Foundation
 
-@objc(RNModuleTemplateModule)
-class RNModuleTemplateModule: NSObject {
+@objc(SeatsioModule)
+class SeatsioModule: NSObject {
   @objc
   func constantsToExport() -> [AnyHashable : Any]! {
     return ["count": 1]
